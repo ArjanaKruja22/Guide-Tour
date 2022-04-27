@@ -10,7 +10,7 @@ public interface GuideService {
 
     //create methods for each request we want to create
 
-    public abstract void createGuide(GuideTour GuideTour); //create new guide
+    public abstract void createGuide(GuideTour GuideTour); //create new guide 
 
     public abstract void updateGuide(Integer id,GuideTour GuideTour); //update the guide we just created
 

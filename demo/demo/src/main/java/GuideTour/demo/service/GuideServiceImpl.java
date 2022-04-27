@@ -17,7 +17,9 @@ public class GuideServiceImpl implements GuideService {
     //for auto id generation
     private final AtomicLong id = new AtomicLong(); //incremented sequence numbers
 
-    public GuideServiceImpl(){ //function need to read our CSV
+    //The class' constructor, in which data is read from the CSV file and stored into a HashMap
+
+    public GuideServiceImpl(){ //method need to read our CSV
 
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
         //try{}catch block to connect our CSV data.
@@ -29,26 +31,40 @@ public class GuideServiceImpl implements GuideService {
                 guides.put(id.intValue(), guideTour);
             } }catch(IOException e) {
             e.printStackTrace(); } }
+            
+    
+    //used when we override a method in sub class @Override
 
+    //This method is used to add a new article to the hashmap
     @Override   //auto-implementation from our main class
-    public void createGuide(GuideTour GuideTour) {
+    public void createGuide(GuideTour GuideTour) { //POST method
         if(guides. containsKey(GuideTour.getId())){ //condition for creation of guides
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Existig Id ...");}
-        guides.put(GuideTour.getId(), GuideTour);}
+        guides.put(GuideTour.getId(), GuideTour);
+    }
 
+    //This method is called to edit an already existing article
     @Override
-    public void updateGuide(Integer id, GuideTour GuideTour) {
+    public void updateGuide(Integer id, GuideTour GuideTour) { //PUT method
         guides.remove(id);
         GuideTour.setId(id);
-        guides.put(GuideTour.getId(), GuideTour);  }
+        guides.put(GuideTour.getId(), GuideTour);  
+    }
 
+    //This method is used to delete an article from the hashmap based on the ID provided
     @Override
-    public void deleteGuide(Integer id) {
-        guides.remove(id);}
+    public void deleteGuide(Integer id) { //DELETE method
+        guides.remove(id);
+    }
 
+    //This method simply returns the entries in the hashmap in the form of an array
     @Override
     public Collection<GuideTour> getGuides() {
-        return guides.values(); }
+        return guides.values(); 
+    }
+
+    //This method is used to get a filtered set of guides 
+    // with the filtertype and filter provided in the frontend
 
     @Override //This code is written for the filter method. If we want to search by name, we have the first case.
     public Collection<GuideTour> getFilteredGuideTours(String filterType, String filter) {
