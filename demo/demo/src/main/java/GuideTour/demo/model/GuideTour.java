@@ -12,11 +12,23 @@ public class GuideTour {
     private String price;
 
     public GuideTour(){};
+
+    public GuideTour(Integer id, String name, String period, String monument, String tour, String languages,String src,String price){ //constructor called when an instance of the class is created
+        this.id = id;  //this. refers to the current object in a method or constructor
+        this.name = name;
+        this.period = period;
+        this.monument = monument;
+        this.tour = tour;
+        this.languages = languages;
+        this.src = src;
+        this.price = price;
+        
+    }
                                   // get/set method for each variable
-    public String getPrice() {    // get()  returns the value of the variable name
+    public String getPrice() {    // get()  reads the value of a variable
         return price;
     }
-    public void setPrice(String price) {   //set() takes a parameter and assigns it to the name variable
+    public void setPrice(String price) {   //set()  A setter updates the value of a variable
         this.price = price;
     }
     public String getSrc() {
@@ -61,15 +73,5 @@ public class GuideTour {
     public void setId(Integer id) {
         this.id = id;
     }
-    public GuideTour(Integer id, String name, String period, String monument, String tour, String languages,String src,String price){ //constructor called when an instance of the class is created
-        this.id = id;  //this. refers to the current object in a method or constructor
-        this.name = name;
-        this.period = period;
-        this.monument = monument;
-        this.tour = tour;
-        this.languages = languages;
-        this.src = src;
-        this.price = price;
-        
-    }
+    
 }
