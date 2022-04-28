@@ -43,7 +43,7 @@ public class GuideController {
         return new ResponseEntity<>("Guide is deleted successfully", HttpStatus.OK);
     }
 
-    //This code is used to add a new guide 
+    //This code is used to add/create a new guide 
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value = "/guides", method=RequestMethod.POST)
     public ResponseEntity<Object> createGuide(@RequestBody GuideTour GuideTour){
@@ -56,7 +56,8 @@ public class GuideController {
     @RequestMapping(value = "/guides/{id}", method=RequestMethod.PUT)
     public ResponseEntity<Object> updateGuide(@PathVariable("id") int id, @RequestBody GuideTour GuideTour){
         guideService.updateGuide(id,GuideTour);
-        return new ResponseEntity<>("Place is updated successfully", HttpStatus.OK);
+        return new ResponseEntity<>("Place is updated successfully", HttpStatus.OK); 
+        //ResponseEntity is meant to represent the entire HTTP response
     }
 
     //This code is used to get a filtered list of all guides

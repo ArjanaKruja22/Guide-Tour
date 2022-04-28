@@ -12,8 +12,9 @@ public class GuideTour {
     private String price;
 
     public GuideTour(){};
-
-    public GuideTour(Integer id, String name, String period, String monument, String tour, String languages,String src,String price){ //constructor called when an instance of the class is created
+    
+    //attribute initialising
+    public GuideTour(Integer id, String name, String period, String monument, String tour, String languages,String src,String price){ //constructor helps initialising attributes
         this.id = id;  //this. refers to the current object in a method or constructor
         this.name = name;
         this.period = period;
